@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>WriteItDown</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="title">
+                <span>Write.It.Down</span>
+            </div>
+            <div class="content">
+                <!-- calendar -->
+                <div class="calendar">
+                    <div class="title-calendar">
+                        <span>Calendar</span>
+                    </div>
+                    <div class="content-calendar">
+                        <div class="cal-container">
+                            <div class="month">
+                                <img src="assets/icons/chevron-left-solid-24.png" alt="" class="prev">
+                                <div class="date">
+                                    <h1></h1>
+                                    <p></p>
+                                </div>
+                                <img src="assets/icons/chevron-right-solid-24.png" alt="" class="next">
+                            </div>
+                            <div class="weekdays">
+                                <div>S</div>
+                                <div>M</div>
+                                <div>T</div>
+                                <div>W</div>
+                                <div>T</div>
+                                <div>F</div>
+                                <div>S</div>
+                            </div>
+                            <div class="days"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- to-do List -->
+                <div class="todoapp">
+                    <div class="title-todoapp">
+                        <span>To-Do List</span>
+                    </div>
+                    <div class="content-todoapp">
+                        <div class="to-do-box">
+                            <div class="add-items">
+                                <input type="text" name="" id="input-item" placeholder="Add a task">
+                                <div class="add">
+                                    <img src="assets/icons/icons8-plus-math-60.png" alt="">
+                                </div>
+                            </div>
+                            <ul id="list-items"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- note app -->
+                <div class="noteapp">
+                    <div class="title-noteapp">
+                        <span>Your Notes</span>
+                    </div>
+                    <div class="content-noteapp">
+                        <div class="note-bar">
+                            <button class="addnote" id="#addnote"><a href="#addnote-content">Add Note</a></button>
+                            <!-- <div class="note-search">
+                                <input type="text" name="" class="search" id="" placeholder="Search Note">
+                                <button>Search</button>
+                            </div> -->
+                        </div>
+                        <div class="add-note-content" id="addnote-content">
+                            <div class="note-heading">
+                                <h1 class="note-header">
+                                    Add Note
+                                </h1>
+                                <hr>
+                            </div>
+                            <form action="" class="note-form">
+                                <label for="">Title</label>
+                                <input type="text" id="addTitle" class="note-title">
+                                <label for="">Note</label>
+                                <textarea name="" id="addTxt" cols="20" rows="5" class="note-content"></textarea>
+                            </form>
+                            <div class="note-button">
+                                <button type="submit" id="addBtn">Submit</button>
+                                <button type="reset"><a href="#notes-area" class="closeBtn">Cancel</a></button>
+                            </div>
+                        </div>
+                        <div class="note-content">
+                            <div class="main-note" id="notes-area"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/calendar.js"></script>
+    <script src="js/to-do.js"></script>
+    <!-- <script src="js/note.js"></script> -->
+    <script src="js/note-2.js"></script>
+</body>
+
+</html>

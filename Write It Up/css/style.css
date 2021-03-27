@@ -1,0 +1,604 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  position: relative;
+}
+
+ul {
+  list-style: none;
+}
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px 0;
+}
+
+.title span {
+  height: 50px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  word-spacing: 0.1rem;
+  letter-spacing: 0.1rem;
+  background-color: black;
+}
+
+.content {
+  /* border: 2px solid black; */
+  height: 85vh;
+  width: 100%;
+  display: flex;
+}
+
+.content .calendar {
+  /* border: 2px solid red; */
+  width: 40%;
+}
+
+.calendar .title-calendar {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 25px 0; */
+}
+
+.calendar .title-calendar span {
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  word-spacing: 0.1rem;
+  letter-spacing: 0.1rem;
+  background-color: black;
+}
+
+.calendar .content-calendar {
+  /* border: 2px solid black; */
+  height: 73.5vh;
+  width: 100%;
+  display: flex;
+  /* padding: 5px; */
+}
+
+.content-calendar .cal-container {
+  width: 100%;
+  height: 100%;
+}
+
+.content-calendar .cal-container .month {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+  /* border: 2px solid black; */
+}
+
+.cal-container .month img {
+  cursor: pointer;
+}
+
+.cal-container .month h1 {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01rem;
+}
+
+.cal-container .month p {
+  font-size: 17.5px;
+  font-weight: 500;
+  letter-spacing: 0.01rem;
+  word-spacing: 0.01rem;
+}
+
+.cal-container .weekdays {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 50px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.cal-container .weekdays div {
+  /* border: 2px solid blue; */
+  font-size: 17.5px;
+  background-color: black;
+  color: white;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  padding: 5px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cal-container .days {
+  /* border: 2px solid red; */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  background-color: white;
+}
+
+.cal-container .days div {
+  /* border: 2px solid black; */
+  font-size: 17.5px;
+  font-weight: 500;
+  margin: 5px 5px 10px 5px;
+  width: calc(76% / 7);
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cal-container .days div:hover:not(.today) {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.cal-container .days .prev-date,
+.next-date {
+  opacity: 0.5;
+}
+
+.cal-container .days .today {
+  background-color: black;
+  color: white;
+}
+
+.content .todoapp {
+  /* border: 2px solid blue; */
+  width: 50%;
+}
+
+.todoapp .title-todoapp {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 25px 0; */
+}
+
+.todoapp .title-todoapp span {
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  word-spacing: 0.1rem;
+  letter-spacing: 0.1rem;
+  background-color: black;
+}
+
+.todoapp .content-todoapp {
+  /* border: 2px solid black; */
+  height: 73.5vh;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+}
+
+.todoapp .content-todoapp .to-do-box {
+  /* border: 2px solid red; */
+  width: 100%;
+  /* background-color: rgba(240, 240, 240, 0.75); */
+  display: flex;
+  /* border-left: 2px solid black; */
+  /* border: 2px solid black; */
+  overflow: auto;
+  flex-direction: column;
+  flex-basis: 100%;
+  /* padding: 20px 15px 15px 15px; */
+}
+
+.content-todoapp .to-do-box .add-items {
+  /* border: 2px solid red; */
+  width: 100%;
+  background-color: rgba(240, 240, 240, 0.75);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.to-do-box .add-items input {
+  border: 3px solid black;
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+  outline: none;
+  /* border: none; */
+  font-size: 16px;
+  font-weight: 550;
+  letter-spacing: 0.03rem;
+}
+
+.to-do-box .add-items input::placeholder {
+  opacity: 0.25;
+}
+
+.to-do-box .add-items .add {
+  width: 80px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.add-items .add img {
+  /* border: 2px solid white; */
+  width: 60%;
+  height: 85%;
+}
+
+.to-do-box .add-items .add:hover {
+  cursor: pointer;
+}
+
+.to-do-box .items {
+  /* border: 2px solid red; */
+  /* margin-bottom: 14px; */
+  height: 60px;
+  border-bottom: 2px solid black;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.items i.de {
+  font-size: 25px;
+  padding: 5px 10px 5px 5px;
+}
+
+.items i.de:hover {
+  cursor: pointer;
+}
+
+.to-do-box .items .item-text {
+  display: flex;
+  align-items: center;
+}
+
+.items .item-text i.co {
+  font-size: 25px;
+  padding: 5px 10px 5px 5px;
+}
+.items .item-text i.co:hover {
+  cursor: pointer;
+}
+
+.fa-check-circle {
+  color: black;
+}
+
+.items .item-text p {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.01rem;
+}
+
+.items .item-text .lineThrough {
+  text-decoration: line-through;
+  color: rgb(175, 175, 175);
+}
+
+.content .noteapp {
+  /* border: 2px solid green; */
+  width: 100%;
+}
+
+.noteapp .title-noteapp {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 25px 0; */
+}
+
+.noteapp .title-noteapp span {
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  word-spacing: 0.1rem;
+  letter-spacing: 0.1rem;
+  background-color: black;
+}
+
+.noteapp .content-noteapp {
+  /* border: 2px solid black; */
+  height: 73.5vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-noteapp .note-bar {
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  height: 7.5vh;
+  padding: 0 10px;
+  justify-content: space-between;
+}
+
+.content-noteapp .note-bar .addnote {
+  width: 125px;
+  height: 37.5px;
+  background-color: #ffffff;
+  border: 3px solid black;
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+}
+
+.content-noteapp .note-bar .addnote:hover {
+  background-color: black;
+  color: white;
+}
+
+.note-bar .addnote a {
+  text-decoration: none;
+  color: black;
+}
+
+.note-bar .addnote a:hover {
+  color: white;
+}
+
+.content-noteapp .note-bar .note-search {
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+}
+
+.note-bar .note-search input {
+  height: 37.5px;
+  width: 250px;
+  margin-right: 5px;
+  outline: none;
+  border: 3px solid black;
+  background-color: #fff;
+  padding: 0 5px 0 10px;
+  font-size: 16px;
+  font-weight: 550;
+  letter-spacing: 0.03rem;
+}
+
+.note-bar .note-search input::placeholder {
+  opacity: 0.25;
+}
+
+.note-bar .note-search button {
+  width: 100px;
+  height: 37.5px;
+  background-color: black;
+  border: none;
+  /* border: 3px solid black; */
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+}
+
+.add-note-content {
+  position: fixed;
+  top: 300px;
+  right: 200px;
+  width: 400px;
+  /* margin: auto; */
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 10px #cfcfcf;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: 0.15s ease-in;
+}
+
+.add-note-content:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.add-note-content .note-heading h1 {
+  /* border: 2px solid green; */
+  text-align: center;
+  font-size: 25px;
+  font-weight: 650;
+  color: black;
+  padding-bottom: 2.5px;
+}
+
+.add-note-content .note-heading hr {
+  /* height: 550px; */
+  border: 2px solid black;
+  border-radius: 50px;
+  margin: auto;
+  width: 100px;
+  background-color: black;
+}
+
+.add-note-content form {
+  /* border: 2px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.add-note-content form label {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+  color: #595959;
+}
+
+.add-note-content form input {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+  height: 28px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+  margin-bottom: 10px;
+}
+
+.add-note-content form textarea {
+  margin-top: 10px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+
+.add-note-content .note-button {
+  margin: auto;
+}
+
+.note-button button {
+  width: 100px;
+  height: 35px;
+  background-color: #ffffff;
+  border: 3px solid black;
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.note-button button:hover {
+  background-color: black;
+  color: white;
+}
+
+.note-button button a {
+  text-decoration: none;
+  color: black;
+}
+
+.note-button button a:hover {
+  color: white;
+}
+
+.content-noteapp .note-content {
+  /* border: 2px solid black; */
+  height: 100%;
+}
+
+.note-content .main-note {
+  /* border: 2px solid black; */
+  height: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* overflow: scroll; */
+}
+
+.main-note .note-1 {
+  border: 2px solid black;
+  width: 250px;
+  height: 200px;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  word-wrap: break-word;
+}
+
+.main-note .note-1 span {
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: 0.1rem;
+}
+
+.main-note .note-1 p {
+  font-size: 0.8rem;
+  font-weight: 450;
+  /* letter-spacing: 0.1rem; */
+}
+
+.main-note .note-1 button {
+  width: 40%;
+  height: 30px;
+  outline: none;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 550;
+  letter-spacing: 0.05rem;
+}
